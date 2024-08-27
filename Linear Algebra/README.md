@@ -164,3 +164,187 @@ b = np.round(10 * np.random.rand(5,))
 x = np.linalg.solve(A, b)
 print(x)
 ```
+
+# Chapter 2 - Basic Matrix Algebra.ipynb
+
+## Matrix Operations and SymPy Demonstrations
+
+This file contains Python code for demonstrating various matrix operations using NumPy and SymPy. It includes operations such as addition, multiplication, transpose, and inversion of matrices, as well as the use of elementary matrices and Gauss-Jordan elimination.
+
+## Table of Contents
+1. [Dependencies](#dependencies)
+2. [Matrix Operations](#matrix-operations)
+    - [Matrix Addition](#matrix-addition)
+    - [Matrix Multiplication](#matrix-multiplication)
+    - [Commutability](#commutability)
+3. [SymPy Demonstrations](#sympy-demonstrations)
+    - [Addition](#addition)
+    - [Multiplication](#multiplication)
+    - [Transpose](#transpose)
+    - [Identity Matrices](#identity-matrices)
+    - [Elementary Matrices](#elementary-matrices)
+    - [Inverse Matrices](#inverse-matrices)
+    - [Gauss-Jordan Elimination](#gauss-jordan-elimination)
+
+
+## Dependencies
+
+The code requires the following Python libraries:
+- `numpy`
+- `sympy`
+- `IPython`
+
+You can install the necessary libraries using pip:
+
+```bash
+pip install numpy sympy ipython
+```
+
+## Matrix Operations
+
+### Matrix Addition
+
+Matrix addition is straightforward. For any matrices \(A\) and \(B\) of the same dimensions, their sum is computed element-wise.
+
+Example:
+```python
+import numpy as np
+
+A = np.array([[1, 2], [3, 4]])
+B = np.array([[5, 6], [7, 8]])
+C = A + B
+print(C)
+```
+
+### Matrix Multiplication
+
+Matrix multiplication can be performed in two ways:
+- **Hadamard Multiplication** (element-wise)
+- **Matrix Product**
+
+Example:
+```python
+import numpy as np
+
+A = np.array([[1, 2], [3, 4]])
+B = np.array([[5, 6], [7, 8]])
+
+hadamard_product = A * B
+matrix_product = A @ B
+
+print("Hadamard Product:\n", hadamard_product)
+print("Matrix Product:\n", matrix_product)
+```
+
+### Commutability
+
+Matrix multiplication is generally not commutative. For example:
+
+```python
+import sympy as sy
+
+A = sy.Matrix([[3, 4], [7, 8]])
+B = sy.Matrix([[5, 3], [2, 1]])
+
+AB = A * B
+BA = B * A
+
+print("AB:\n", AB)
+print("BA:\n", BA)
+```
+
+## SymPy Demonstrations
+
+### Addition
+
+Symbolic matrix addition using SymPy:
+
+```python
+import sympy as sy
+
+a, b, c, d, e, f, g, h, i, j, k, l = sy.symbols('a b c d e f g h i j k l')
+A = sy.Matrix([[a, b, c], [d, e, f]])
+B = sy.Matrix([[g, h, i], [j, k, l]])
+
+sum_matrix = A + B
+print("Sum:\n", sum_matrix)
+```
+
+### Multiplication
+
+Symbolic matrix multiplication:
+
+```python
+import sympy as sy
+
+A = sy.Matrix([[a, b, c], [d, e, f]])
+B = sy.Matrix([[g, h, i], [j, k, l], [m, n, o]])
+
+product = A * B
+print("Product:\n", product)
+```
+
+### Transpose
+
+Transpose of a matrix:
+
+```python
+import sympy as sy
+
+A = sy.Matrix([[1, 2, 3], [4, 5, 6]])
+A_transpose = A.transpose()
+print("Transpose:\n", A_transpose)
+```
+
+### Identity Matrices
+
+Creating and verifying identity matrices:
+
+```python
+import numpy as np
+
+I = np.eye(5)
+print("Identity Matrix:\n", I)
+```
+
+### Elementary Matrices
+
+Demonstrating elementary matrices:
+
+```python
+import sympy as sy
+
+E = sy.Matrix([[0, 1, 0], [1, 0, 0], [0, 0, 1]])
+A = sy.randMatrix(3, percent=80)
+EA = E * A
+print("Elementary Matrix Transformation:\n", EA)
+```
+
+### Inverse Matrices
+
+Finding and verifying the inverse of a matrix:
+
+```python
+import numpy as np
+
+A = np.round(10 * np.random.randn(5, 5))
+Ainv = np.linalg.inv(A)
+print("Inverse Matrix:\n", Ainv)
+print("Verification (A @ Ainv):\n", A @ Ainv)
+```
+
+### Gauss-Jordan Elimination
+
+Performing Gauss-Jordan elimination to find the inverse:
+
+```python
+import sympy as sy
+
+A = sy.Matrix([[3, 4], [7, 8]])
+I = sy.eye(2)
+AI = A.row_join(I)
+AI_rref = AI.rref()
+Ainv = AI_rref[0][:, 2:]
+print("Gauss-Jordan Elimination Result:\n", Ainv)
+```
+
