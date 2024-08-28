@@ -10,13 +10,13 @@ This file contains code for visualizing and solving systems of linear equations 
 
 1. [Requirements](#requirements)
 2. [Overview](#overview)
-  - [Visualization of a System of Two Linear Equations](#1-visualization-of-a-system-of-two-linear-equations)
-  - [Drawing a Plane](#2-drawing-a-plane)
-  - [Visualization of a System of Three Linear Equations](#3-visualization-of-a-system-of-three-linear-equations)
-  - [Visualization of a System with Infinite Solutions](#4-visualization-of-a-system-with-infinite-solutions)
-  - [Reduced Row Echelon Form](#5-reduced-row-echelon-form)
-  - [Example: Symbolic Solution and Polynomial Fitting](#6-example-symbolic-solution-and-polynomial-fitting)
-  - [Solving Linear Systems Using NumPy](#7-solving-linear-systems-using-numpy)
+    - [Visualization of a System of Two Linear Equations](#1-visualization-of-a-system-of-two-linear-equations)
+    - [Drawing a Plane](#2-drawing-a-plane)
+    - [Visualization of a System of Three Linear Equations](#3-visualization-of-a-system-of-three-linear-equations)
+    - [Visualization of a System with Infinite Solutions](#4-visualization-of-a-system-with-infinite-solutions)
+    - [Reduced Row Echelon Form](#5-reduced-row-echelon-form)
+    - [Example: Symbolic Solution and Polynomial Fitting](#6-example-symbolic-solution-and-polynomial-fitting)
+    - [Solving Linear Systems Using NumPy](#7-solving-linear-systems-using-numpy)
 
 
 
@@ -373,9 +373,9 @@ This project demonstrates the visualization and computation of determinants usin
 1. [Overview](#overview)
 2. [Installation](#installation)
 3. [Usage](#usage)
-  - [Visualization of Determinants](#visualization-of-determinants)
-  - [Determinant Computation](#determinant-computation)
-  - [Cramer's Rule](#cramers-rule)
+    - [Visualization of Determinants](#visualization-of-determinants)
+    - [Determinant Computation](#determinant-computation)
+    - [Cramer's Rule](#cramers-rule)
 4. [Explanation](#explanation)
 
 ## Overview
