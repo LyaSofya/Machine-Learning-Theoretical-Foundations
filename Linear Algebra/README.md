@@ -4,7 +4,7 @@ This repository contains Jupyter notebooks and Python scripts for exploring vari
 
 ## Table of Contents
 
-1. [Chapter 1 - Linear Equation System](#chapter-1---linear-equation-system)
+1. [Chapter 1 - Linear Equation System.ipynb](#chapter-1---linear-equation-system.ipynb)
     - [Visualization and Solving Linear Systems in Python](#visualization-and-solving-linear-systems-in-python)
     - [Requirements](#requirements)
     - [Overview](#overview)
