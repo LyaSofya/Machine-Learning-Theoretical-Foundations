@@ -1,3 +1,61 @@
+# Linear Algebra with Python
+
+This repository contains Jupyter notebooks and Python scripts for exploring various topics in linear algebra using Python. It includes visualization, computation, and practical examples of concepts such as linear systems, matrix operations, determinants, and factorizations. The code utilizes popular Python libraries including Matplotlib, NumPy, and SymPy for data analysis and mathematical computations.
+
+## Table of Contents
+
+1. [Chapter 1 - Linear Equation System](#chapter-1---linear-equation-system)
+    - [Visualization and Solving Linear Systems in Python](#visualization-and-solving-linear-systems-in-python)
+    - [Requirements](#requirements)
+    - [Overview](#overview)
+      - [Visualization of a System of Two Linear Equations](#1-visualization-of-a-system-of-two-linear-equations)
+      - [Drawing a Plane](#2-drawing-a-plane)
+      - [Visualization of a System of Three Linear Equations](#3-visualization-of-a-system-of-three-linear-equations)
+      - [Visualization of a System with Infinite Solutions](#4-visualization-of-a-system-with-infinite-solutions)
+      - [Reduced Row Echelon Form](#5-reduced-row-echelon-form)
+      - [Example: Symbolic Solution and Polynomial Fitting](#6-example-symbolic-solution-and-polynomial-fitting)
+      - [Solving Linear Systems Using NumPy](#7-solving-linear-systems-using-numpy)
+
+2. [Chapter 2 - Basic Matrix Algebra](#chapter-2---basic-matrix-algebra)
+    - [Matrix Operations and SymPy Demonstrations](#matrix-operations-and-sympy-demonstrations)
+    - [Dependencies](#dependencies)
+    - [Matrix Operations](#matrix-operations)
+      - [Matrix Addition](#matrix-addition)
+      - [Matrix Multiplication](#matrix-multiplication)
+      - [Commutability](#commutability)
+    - [SymPy Demonstrations](#sympy-demonstrations)
+      - [Addition](#addition)
+      - [Multiplication](#multiplication)
+      - [Transpose](#transpose)
+      - [Identity Matrices](#identity-matrices)
+      - [Elementary Matrices](#elementary-matrices)
+      - [Inverse Matrices](#inverse-matrices)
+      - [Gauss-Jordan Elimination](#gauss-jordan-elimination)
+
+3. [Chapter 3 - Determinant](#chapter-3---determinant)
+    - [Determinants Visualization and Computation](#determinants-visualization-and-computation)
+    - [Overview](#overview-1)
+    - [Installation](#installation)
+    - [Usage](#usage)
+      - [Visualization of Determinants](#visualization-of-determinants)
+      - [Determinant Computation](#determinant-computation)
+      - [Cramer's Rule](#cramers-rule)
+    - [Explanation](#explanation)
+
+4. [Chapter 4 - LU Factorization](#chapter-4---lu-factorization)
+    - [Overview](#overview-2)
+    - [LU Factorization](#lu-factorization)
+      - [Key Points](#key-points)
+      - [Example](#example)
+    - [Cholesky Factorization](#cholesky-factorization)
+      - [Key Points](#key-points-1)
+      - [Example](#example-1)
+    - [Usage](#usage-1)
+    - [Dependencies](#dependencies-1)
+
+---
+
+
 # Chapter 1 - Linear Equation System.ipynb
 
 
