@@ -8,8 +8,8 @@ This file contains code for visualizing and solving systems of linear equations 
 
 ## Table of Contents
 
-- [Requirements](#requirements)
-- [Overview](#overview)
+1. [Requirements](#requirements)
+2. [Overview](#overview)
   - [Visualization of a System of Two Linear Equations](#1-visualization-of-a-system-of-two-linear-equations)
   - [Drawing a Plane](#2-drawing-a-plane)
   - [Visualization of a System of Three Linear Equations](#3-visualization-of-a-system-of-three-linear-equations)
@@ -370,13 +370,13 @@ This project demonstrates the visualization and computation of determinants usin
 
 ## Table of Contents
 
-- [Overview](#overview)
-- [Installation](#installation)
-- [Usage](#usage)
+1. [Overview](#overview)
+2. [Installation](#installation)
+3. [Usage](#usage)
   - [Visualization of Determinants](#visualization-of-determinants)
   - [Determinant Computation](#determinant-computation)
   - [Cramer's Rule](#cramers-rule)
-- [Explanation](#explanation)
+4. [Explanation](#explanation)
 
 ## Overview
 
@@ -493,6 +493,84 @@ print(f"Solutions: x1 = {x1}, x2 = {x2}, x3 = {x3}")
 
 - **Cramer's Rule**: Demonstrates solving a system of linear equations by calculating determinants of modified matrices.
 
+
+# Chapter 4 - LU Factorization.ipynb
+
+
+### Overview
+
+This file provides a detailed explanation and implementation of LU Factorization and Cholesky Factorization, including practical examples and numerical results using Python libraries such as NumPy and SciPy. 
+
+## Table of Contents
+
+1. [LU Factorization](#lu-factorization)
+   - [Key Points](#key-points)
+   - [Example](#example)
+2. [Cholesky Factorization](#cholesky-factorization)
+   - [Key Points](#key-points-1)
+   - [Example](#example-1)
+3. [Usage](#usage)
+4. [Dependencies](#dependencies)
+
+
+
+  
+### LU Factorization
+
+LU Factorization decomposes a matrix \( A \) into the product of a lower triangular matrix \( L \) and an upper triangular matrix \( U \). This method is computationally efficient for solving systems of linear equations, especially when multiple solutions are needed.
+
+#### Key Points:
+- LU Factorization is advantageous for solving multiple systems with the same coefficient matrix.
+- SciPy's `sp.linalg.lu()` function provides the LU decomposition along with a permutation matrix \( P \), necessary for some matrices to perform the factorization.
+
+#### Example:
+```python
+import numpy as np
+import scipy as sp
+
+A = np.array([[9, 3, 6], [3, 4, 6], [0, 8, 8]])
+P, L, U = sp.linalg.lu(A)
+print(P)
+print(L)
+print(U)
+```
+
+### Cholesky Factorization
+
+Cholesky Factorization decomposes a positive-definite matrix into the product of a lower triangular matrix and its transpose. This is commonly used for covariance matrices in statistics and in simulations to introduce correlations.
+
+#### Key Points:
+- Cholesky Factorization is analogous to taking the square root of a matrix.
+- It is particularly useful for transforming non-correlated random variables into correlated ones.
+
+#### Example:
+```python
+import numpy as np
+
+n = 1000
+z = np.random.normal(size=(1000, 3))
+z2 = -z
+z = np.concatenate((z, z2), axis=0)
+
+cov_matrix = np.array([[1, 0.8, 0.7], [0.8, 1, 0.8], [0.7, 0.8, 1]])
+L = np.linalg.cholesky(cov_matrix)
+
+z = z @ L.T
+
+print(np.cov(z.T))
+```
+
+### Usage
+
+1. **LU Factorization**: Decompose matrix \( A \) to solve linear systems efficiently.
+2. **Cholesky Factorization**: Transform random variables or analyze covariance matrices.
+
+### Dependencies
+
+- NumPy
+- SciPy
+- Matplotlib (for plotting, not used in this example)
+- Sympy (for symbolic mathematics, not used in this example)
 
 
 
