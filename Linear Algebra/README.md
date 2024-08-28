@@ -4,7 +4,7 @@ This repository contains Jupyter notebooks and Python scripts for exploring vari
 
 ## Table of Contents
 
-1. [Chapter 1 - Linear Equation System.ipynb](#chapter-1---linear-equation-system.ipynb)
+1. [Chapter 1 - Linear Equation System](#chapter-1---linear-equation-system)
     - [Visualization and Solving Linear Systems in Python](#visualization-and-solving-linear-systems-in-python)
     - [Requirements](#requirements)
     - [Overview](#overview)
@@ -56,7 +56,7 @@ This repository contains Jupyter notebooks and Python scripts for exploring vari
 ---
 
 
-# Chapter 1 - Linear Equation System.ipynb
+# Chapter 1 - Linear Equation System
 
 
 
@@ -237,7 +237,7 @@ x = np.linalg.solve(A, b)
 print(x)
 ```
 
-# Chapter 2 - Basic Matrix Algebra.ipynb
+# Chapter 2 - Basic Matrix Algebra
 
 ## Matrix Operations and SymPy Demonstrations
 
@@ -420,7 +420,7 @@ Ainv = AI_rref[0][:, 2:]
 print("Gauss-Jordan Elimination Result:\n", Ainv)
 ```
 
-# Chapter 3 - Determinant.ipynb
+# Chapter 3 - Determinant
 
 ## Determinants Visualization and Computation
 
@@ -552,7 +552,7 @@ print(f"Solutions: x1 = {x1}, x2 = {x2}, x3 = {x3}")
 - **Cramer's Rule**: Demonstrates solving a system of linear equations by calculating determinants of modified matrices.
 
 
-# Chapter 4 - LU Factorization.ipynb
+# Chapter 4 - LU Factorization
 
 
 ### Overview
