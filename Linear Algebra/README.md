@@ -6,6 +6,20 @@
 
 This file contains code for visualizing and solving systems of linear equations using Python libraries such as Matplotlib, NumPy, and SymPy. The code covers basic plotting of linear systems, 3D plane visualization, solving systems of equations, and polynomial fitting.
 
+## Table of Contents
+
+- [Requirements](#requirements)
+- [Overview](#overview)
+  - [Visualization of a System of Two Linear Equations](#1-visualization-of-a-system-of-two-linear-equations)
+  - [Drawing a Plane](#2-drawing-a-plane)
+  - [Visualization of a System of Three Linear Equations](#3-visualization-of-a-system-of-three-linear-equations)
+  - [Visualization of a System with Infinite Solutions](#4-visualization-of-a-system-with-infinite-solutions)
+  - [Reduced Row Echelon Form](#5-reduced-row-echelon-form)
+  - [Example: Symbolic Solution and Polynomial Fitting](#6-example-symbolic-solution-and-polynomial-fitting)
+  - [Solving Linear Systems Using NumPy](#7-solving-linear-systems-using-numpy)
+
+
+
 ## Requirements
 
 Ensure you have the following Python packages installed:
@@ -18,7 +32,7 @@ You can install them using pip:
 pip install matplotlib numpy sympy
 ```
 
-## Code Overview
+## Overview
 
 ### 1. Visualization of a System of Two Linear Equations
 
@@ -347,4 +361,139 @@ AI_rref = AI.rref()
 Ainv = AI_rref[0][:, 2:]
 print("Gauss-Jordan Elimination Result:\n", Ainv)
 ```
+
+# Chapter 3 - Determinant.ipynb
+
+## Determinants Visualization and Computation
+
+This project demonstrates the visualization and computation of determinants using both `NumPy` and `SymPy` libraries. It includes code for plotting determinants in 2D and 3D, calculating determinants using cofactor expansion, and solving linear systems using Cramer's Rule.
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Visualization of Determinants](#visualization-of-determinants)
+  - [Determinant Computation](#determinant-computation)
+  - [Cramer's Rule](#cramers-rule)
+- [Explanation](#explanation)
+
+## Overview
+
+1. **Visualization of Determinants**: 
+   - Plotting 2D matrices and their determinants.
+   - Visualization of 3D determinants (parallelepipeds).
+
+2. **Determinant Computation**:
+   - Using SymPy for symbolic calculations and cofactor expansion.
+   - Verification of results with numerical methods.
+
+3. **Cramer's Rule**:
+   - Solving linear systems using determinants.
+   - Comparison with NumPy's built-in methods.
+
+## Installation
+
+Ensure you have `numpy`, `sympy`, and `matplotlib` installed. You can install these using pip:
+
+```bash
+pip install numpy sympy matplotlib
+```
+
+## Usage
+
+### Visualization of Determinants
+
+This script plots vectors forming a parallelogram (2D) or parallelepiped (3D) and calculates the determinant.
+
+**Example Code:**
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+matrix_2d = np.array([[2, 0], [0, 3]])
+plot_2ddet(matrix_2d)
+
+matrix_2d_non_diag = np.array([[2, 3], [1, 3]])
+plot_2ddet(matrix_2d_non_diag)
+
+matrix_2d_linearly_dependent = np.array([[2, 3], [4, 6]])
+plot_2ddet(matrix_2d_linearly_dependent)
+
+# 3D plot example
+fig = plt.figure(figsize=(8, 8))
+ax = fig.add_subplot(111, projection='3d')
+# Define and plot vertices and edges here
+```
+
+### Determinant Computation
+
+Calculate determinants using SymPy's cofactor expansion and compare with NumPy.
+
+**Example Code:**
+
+```python
+import sympy as sy
+
+a, b, c, d = sy.symbols('a b c d')
+matrix = sy.Matrix([[a, b], [c, d]])
+det = matrix.det()
+print(f"Determinant: {det}")
+
+# Cofactor expansion
+def cof_exp(matrix, c):
+    detA = 0
+    for i in range(matrix.shape[0]):
+        minor_matrix = matrix.minor_submatrix(i, c)
+        cofactor = (-1)**(i + c) * minor_matrix.det()
+        detA += matrix[i, c] * cofactor
+    return detA
+
+matrix = sy.Matrix([[49, 0, 61], [73, 22, 96], [2, 0, 32]])
+cof_exp(matrix, 1)
+```
+
+### Cramer's Rule
+
+Solve linear systems using determinants.
+
+**Example Code:**
+
+```python
+import numpy as np
+
+A = np.array([[2, -1, 3], [3, 3, -1], [-1, -1, 1]])
+b = np.array([-3, 10, -4])
+
+det_A = np.linalg.det(A)
+A_1b = np.copy(A)
+A_1b[:, 0] = b
+x1 = np.linalg.det(A_1b) / det_A
+
+A_2b = np.copy(A)
+A_2b[:, 1] = b
+x2 = np.linalg.det(A_2b) / det_A
+
+A_3b = np.copy(A)
+A_3b[:, 2] = b
+x3 = np.linalg.det(A_3b) / det_A
+
+print(f"Solutions: x1 = {x1}, x2 = {x2}, x3 = {x3}")
+```
+
+## Explanation
+
+- **2D Determinants**: The code uses `matplotlib` to visualize the area (or parallelogram) formed by vectors corresponding to a 2x2 matrix. Different matrices are plotted to show varying areas and orientations.
+
+- **3D Determinants**: Plots a 3D parallelepiped to represent the volume corresponding to a 3x3 matrix.
+
+- **Cofactor Expansion**: Calculates determinants using symbolic cofactor expansion, showcasing its application for matrices with symbolic elements.
+
+- **Cramer's Rule**: Demonstrates solving a system of linear equations by calculating determinants of modified matrices.
+
+
+
+
 
