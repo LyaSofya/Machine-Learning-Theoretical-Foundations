@@ -709,4 +709,115 @@ The script produces plots with:
 - 3D vectors displayed in a 3D coordinate system with arrows and annotations.
 
 
+# Chapter 6 - Linear Combination
 
+## Overview
+
+In this chapter, we delve into the concept of linear combinations and their visual representations in 2D and 3D spaces. We explore how vectors can span a space and visualize these concepts using Python libraries.
+
+## Table of Contents
+
+1. [2D Linear Combination](#2d-linear-combination)
+   - [Visualization](#visualization)
+   - [Basis Coordinates](#basis-coordinates)
+2. [3D Linear Combination](#3d-linear-combination)
+   - [Visualization Function](#visualization-function)
+3. [Inconsistent Systems](#inconsistent-systems)
+   - [One Free Variable](#one-free-variable)
+   - [Two Free Variables](#two-free-variables)
+4. [Polynomial Combinations](#polynomial-combinations)
+
+## 2D Linear Combination
+
+### Visualization
+
+This section covers the visualization of linear combinations of two vectors in 2D. We plot the vectors and their linear combinations using `matplotlib`:
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Define vectors
+vectors = np.array([[[0, 0, 4, 2]], [[0, 0, -2, 2]], [[0, 0, 2, 10]], [[0, 0, 8, 4]], [[0, 0, -6, 6]]])
+colors = ['b', 'b', 'r', 'b', 'b']
+
+# Plot vectors
+fig, ax = plt.subplots()
+for i in range(vectors.shape[0]):
+    X, Y, U, V = zip(*vectors[i, :, :])
+    ax.quiver(X, Y, U, V, angles='xy', scale_units='xy', color=colors[i])
+```
+
+### Basis Coordinates
+
+Here, we plot the grid representing the basis vectors and their linear combinations in 2D. The pink grid lines illustrate the span of the basis vectors:
+
+```python
+a = np.arange(-11, 20, 1)
+x = np.arange(-11, 20, 1)
+
+for i in a:
+    y1 = i + 0.5 * x
+    ax.plot(x, y1, ls='--', color='pink')
+    y2 = i - x
+    ax.plot(x, y2, ls='--', color='pink')
+```
+
+## 3D Linear Combination
+
+### Visualization Function
+
+This function visualizes linear combinations in 3D space. It illustrates how scalar multipliers affect the standard basis vectors:
+
+```python
+def linearCombo(a, b, c):
+    '''Visualize linear combination in 3D.'''
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection='3d')
+    vec = np.array([[[0, 0, 0, a, 0, 0]], [[0, 0, 0, 0, b, 0]], [[0, 0, 0, 0, 0, c]], [[0, 0, 0, a, b, c]]])
+    colors = ['b', 'r', 'g']
+    for i in range(vec.shape[0]):
+        X, Y, Z, U, V, W = zip(*vec[i,:,:])
+        ax.quiver(X, Y, Z, U, V, W, color=colors[i])
+```
+
+## Inconsistent Systems
+
+### One Free Variable
+
+We explore how an inconsistent system with one free variable can be represented as a line in 3D space:
+
+```python
+fig = plt.figure()
+ax = fig.add_subplot(projection='3d')
+t = np.linspace(-1, 1, 10)
+c1 = 3/2 + t/2
+c2 = -1/2 - 5/2 * t
+ax.plot(c1, c2, t)
+```
+
+### Two Free Variables
+
+In this section, we visualize an inconsistent system with two free variables. The resulting solution spans a plane in 3D space:
+
+```python
+fig = plt.figure()
+ax = fig.add_subplot(projection='3d')
+x2 = np.linspace(-2, 2, 10)
+x3 = np.linspace(-2, 2, 10)
+X2, X3 = np.meshgrid(x2, x3)
+X1 = 3 * X2 + 2 * X3
+ax.plot_wireframe(X1, X2, X3)
+```
+
+## Polynomial Combinations
+
+This section demonstrates how polynomials can be expressed as linear combinations of other polynomials. We use `sympy` to solve the corresponding system:
+
+```python
+import sympy as sy
+sy.init_printing()
+
+A = sy.Matrix([[1,2,1,4],[2,1,-1,5],[-1,-1,-1,-2],[1,1,-4,7]])
+A.rref()
+```
