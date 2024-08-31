@@ -53,6 +53,16 @@ This repository contains Jupyter notebooks and Python scripts for exploring vari
     - [Usage](#usage-1)
     - [Dependencies](#dependencies-1)
 
+5. [Chapter 5 - Vector Addition, Subtraction and Scalar Multiplication](#chapter-5---vector-addition-subtraction-and-scalar-multiplication)
+    - [Vector Operations and Visualization](#vector-operations-and-visualization)
+    - [Overview](#overview-3)
+    - [Features](#features)
+    - [Usage](#usage-2)
+      - [Vector Norm Calculation](#vector-norm-calculation)
+      - [2D Vector Operations](#2d-vector-operations)
+      - [3D Vector Operations](#3d-vector-operations)
+    - [Examples](#examples)
+    - [Visualization](#visualization-1)
 ---
 
 
@@ -630,6 +640,73 @@ print(np.cov(z.T))
 - Matplotlib (for plotting, not used in this example)
 - Sympy (for symbolic mathematics, not used in this example)
 
+
+
+
+
+# Chapter 5 - Vector Addition, Subtraction and Scalar Multiplication
+
+## Vector Operations and Visualization
+
+## Overview
+
+This Python script demonstrates various vector operations and visualizations using the `numpy` and `matplotlib` libraries. It includes examples of vector norms, addition, subtraction, and scalar multiplication, as well as 2D and 3D vector visualizations.
+
+## Table of Contents
+
+
+1. [Features](#features)
+2. [Usage](#usage)
+   - [Vector Norm Calculation](#vector-norm-calculation)
+   - [2D Vector Operations](#2d-vector-operations)
+   - [3D Vector Operations](#3d-vector-operations)
+3. [Examples](#examples)
+4. [Visualization](#visualization)
+
+
+
+## Features
+
+- **Vector Norms**: Calculates and displays the norms (magnitudes) of 2D and 3D vectors using `numpy.linalg.norm()`.
+- **2D Vector Visualization**: Plots 2D vectors, including vector addition, subtraction, and scalar multiplication, with annotations showing their coordinates and magnitudes.
+- **3D Vector Visualization**: Plots 3D vectors to illustrate operations like vector addition, subtraction, and scalar multiplication, using `matplotlib`'s 3D plotting capabilities.
+
+
+
+## Usage
+
+### Vector Norm Calculation
+
+- Computes the norms of vectors in both 2D and 3D spaces.
+- Example vectors: `[4, 7]`, `[8, 6]` for 2D; `[1, 1, 1]`, `[-2, 2, 5]`, `[3, -2, 1]` for 3D.
+
+### 2D Vector Operations
+
+- Visualizes vectors in 2D space.
+- Demonstrates vector addition, subtraction, and scalar multiplication with graphical annotations.
+
+### 3D Vector Operations
+
+- Visualizes vectors in 3D space.
+- Demonstrates vector addition, subtraction, and scalar multiplication in 3D with graphical annotations.
+
+## Examples
+
+- **2D Vector Norms and Addition**:
+  Shows vectors `[4, 7]` and `[8, 6]` with their norms and graphical representation of their addition.
+
+- **2D Vector Subtraction and Scalar Multiplication**:
+  Illustrates how vectors are subtracted and scaled in 2D space.
+
+- **3D Vector Addition and Scalar Multiplication**:
+  Visualizes vector operations in 3D, demonstrating how vectors combine and scale.
+
+## Visualization
+
+The script produces plots with:
+- 2D vectors displayed as arrows.
+- Annotations for vector endpoints and magnitudes.
+- 3D vectors displayed in a 3D coordinate system with arrows and annotations.
 
 
 
