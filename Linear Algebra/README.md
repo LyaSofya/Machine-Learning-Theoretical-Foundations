@@ -821,3 +821,116 @@ sy.init_printing()
 A = sy.Matrix([[1,2,1,4],[2,1,-1,5],[-1,-1,-1,-2],[1,1,-4,7]])
 A.rref()
 ```
+
+
+
+
+# Chapter 7 - Linear Independence
+
+## Overview
+
+In this project, we explore the concept of linear independence and dependence of vectors, along with their visual representations in 2D and 3D spaces. Using Python libraries such as `SymPy` and `matplotlib`, we provide a comprehensive approach to understanding these fundamental concepts in linear algebra.
+
+## Table of Contents
+
+1. [2D Linear Independence](#2d-linear-independence)
+   - [Visualization](#visualization)
+   - [Analysis](#analysis)
+2. [3D Linear Independence](#3d-linear-independence)
+   - [Visualization](#visualization)
+3. [Additional Notes](#additional-notes)
+
+## 2D Linear Independence
+
+### Visualization
+
+This section demonstrates how to visualize linear dependence of vectors in a 2D plane. We use `matplotlib` to plot vectors and illustrate their linear relationships:
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+fig, ax = plt.subplots(figsize=(8, 8))
+
+# Define vectors
+arrows = np.array([[[0, 0, 3, 2]], [[0, 0, -9, -6]], [[0, 0, 6, 4]]])
+colors = ['r', 'b', 'g']
+
+# Plot arrows
+for i in range(arrows.shape[0]):
+    X, Y, U, V = zip(*arrows[i, :, :])
+    ax.arrow(X[0], Y[0], U[0], V[0], color=colors[i], width=0.18, length_includes_head=True,
+             head_width=0.3, head_length=0.6, overhang=0.4, zorder=-i)
+
+ax.scatter(0, 0, ec='red', fc='black', zorder=5)
+ax.text(6, 4, '$(6, 4)$')
+ax.text(-9, -6.5, '$(-9, -6)$')
+ax.text(3, 2, '$(3, 2)$')
+
+ax.grid(True)
+ax.set_title('Linear Dependence Visualization')
+ax.axis([-10, 10, -10, 10])
+ax.set_xlabel('x-axis', size=18)
+ax.set_ylabel('y-axis', size=18)
+plt.show()
+```
+
+### Analysis
+
+This section includes the analysis of linear independence in 2D. We test for linear dependence by constructing augmented matrices and analyzing the results. The `SymPy` library is used to compute reduced row echelon forms (RREF):
+
+```python
+import sympy as sy
+sy.init_printing()
+
+# Define matrix
+A = sy.Matrix([[1, 4, 2, 0], [2, 5, 1, 0], [3, 6, 0, 0]])
+A.rref()
+```
+
+## 3D Linear Independence
+
+### Visualization
+
+In this section, we extend the visualization of linear independence to 3D space. We show how vectors can be represented and analyzed in three dimensions:
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+from mpl_toolkits.mplot3d import Axes3D
+
+fig = plt.figure(figsize=(10, 10))
+ax = fig.add_subplot(projection='3d')
+
+s = np.linspace(-1, 1, 10)
+t = np.linspace(-1, 1, 10)
+S, T = np.meshgrid(s, t)
+
+X = S + 2 * T
+Y = -2 * S + T
+Z = S + 2 * T
+ax.plot_wireframe(X, Y, Z, linewidth=1.5, color='k', alpha=0.6)
+
+# Define vectors
+vec = np.array([[[0, 0, 0, 1, -2, 1]], [[0, 0, 0, 2, 1, 2]], [[0, 0, 0, -1, 2, 3]]])
+colors = ['r', 'b', 'g']
+
+# Plot vectors
+for i in range(vec.shape[0]):
+    X, Y, Z, U, V, W = zip(*vec[i, :, :])
+    ax.quiver(X, Y, Z, U, V, W, length=1, normalize=False, color=colors[i],
+              arrow_length_ratio=0.08, pivot='tail', linestyles='solid', linewidths=3, alpha=0.6)
+
+ax.set_title('Linear Independence Visualization')
+ax.set_xlabel('x-axis', size=18)
+ax.set_ylabel('y-axis', size=18)
+ax.set_zlabel('z-axis', size=18)
+ax.view_init(elev=50., azim=0)
+plt.show()
+```
+
+## Additional Notes
+
+- **Linear Independence**: If a set of vectors includes a zero vector or contains more vectors than the dimension of the space, it is linearly dependent.
+- **Matrix Analysis**: We use `SymPy` to compute the row echelon form to determine linear independence.
+
